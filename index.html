@@ -3,93 +3,314 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>H&H Service - Entrümpelung</title>
-        <link rel="apple-touch-icon" href="28d9928c-a375-4da2-9efe-c9555d632b43.jpeg">
-    <link rel="icon" type="image/png" href="28d9928c-a375-4da2-9efe-c9555d632b43.jpeg">
-
+    <title>H&H Service - Entrümpelung & App</title>
+    <link rel="apple-touch-icon" href="3E669E7F-F832-4DD4-BBD1-EBF63F66A07F.PNG">
+    <link rel="icon" type="image/png" href="3E669E7F-F832-4DD4-BBD1-EBF63F66A07F.PNG">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .service-card {
+            background: #f9f9fb;
+            border: 1px solid #e1e1e8;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .service-card:hover {
+            background: #eef2f7;
+            border-color: #0056b3;
+        }
+        .service-card h3 {
+            margin: 0 0 5px 0;
+            color: #0056b3;
+        }
+        .service-card p {
+            margin: 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .install-box {
+            background: #e8f4fd;
+            border-left: 4px solid #0056b3;
+            padding: 12px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .install-box h4 {
+            margin: 0 0 6px 0;
+            color: #0056b3;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        .btn:hover {
+            background: #004085;
+        }
+        .btn-secondary {
+            background: #6c757d;
+            margin-top: 10px;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .btn-whatsapp {
+            background: #25d366;
+        }
+        .btn-whatsapp:hover {
+            background: #1ebe5d;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+    </style>
 </head>
 <body>
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 20px;
-        color: #333;
-      }
-      .container {
-        max-width: 600px;
-        margin: 0 auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      }
-      h1 { color: #0056b3; font-size: 24px; }
-      label { display: block; margin-top: 15px; font-weight: bold; }
-      input, textarea, select {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      button {
-        background-color: #0056b3;
-        color: white;
-        border: none;
-        padding: 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        width: 100%;
-        margin-top: 20px;
-      }
-      button:hover { background-color: #004494; }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>H&H Service App</h1>
-      <p>Digitale Anfrage für Entrümpelungen & Haushaltsauflösungen.</p>
-      
-      <form onsubmit="sendToWhatsApp(event)">
-        <label for="name">Ihr Name / Firma:</label>
-        <input type="text" id="name" placeholder="Max Mustermann" required>
+<div class="container">
 
-        <label for="phone">Telefonnummer für Rückruf:</label>
-        <input type="tel" id="phone" placeholder="0176 12345678" required>
+    <!-- SEITE 1: STARTSEITE -->
+    <div id="page-home" class="page active">
+        <div class="logo-container">
+            <img src="3E669E7F-F832-4DD4-BBD1-EBF63F66A07F.PNG" alt="H&H Service Logo">
+        </div>
+        <h1>H&H Service</h1>
+        <div class="subtitle">Ihr zuverlässiger Partner für Entrümpelung & mehr</div>
 
-        <label for="object-type">Art des Objekts:</label>
-        <select id="object-type">
-          <option value="Wohnung / Haus">Wohnung / Haus</option>
-          <option value="Keller / Dachboden">Keller / Dachboden</option>
-          <option value="Gewerbe / Büro">Gewerbe / Büro</option>
-        </select>
+        <!-- Hinweis zum App installieren -->
+        <div class="install-box">
+            <h4>📱 H&H Service als App auf dem Handy nutzen!</h4>
+            <p>Installieren Sie unsere App direkt auf Ihrem Startbildschirm, um uns immer schnell griffbereit zu haben:</p>
+            <ul style="margin: 8px 0 0 20px; padding: 0; font-size: 13px;">
+                <li><strong>iPhone (Safari):</strong> Tippen Sie unten auf das Teilen-Symbol und wählen Sie <em>"Zum Startbildschirm"</em>.</li>
+                <li><strong>Android (Chrome):</strong> Tippen Sie oben rechts auf die drei Punkte und wählen Sie <em>"Zum Startbildschirm hinzufügen"</em>.</li>
+            </ul>
+        </div>
 
-        <label for="photos">Fotos vom Zustand (optional):</label>
-        <input type="file" id="photos" accept="image/*" multiple>
+        <h3 style="margin-top: 25px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Unsere Dienstleistungen</h3>
+        <p style="font-size: 14px; color: #666;">Wählen Sie einen Bereich aus, um mehr zu erfahren und direkt eine Anfrage zu starten:</p>
 
-        <button type="submit">Anfrage via WhatsApp senden</button>
-      </form>
+        <!-- Dienstleistung 1 -->
+        <div class="service-card" onclick="showService('entruempelung')">
+            <h3>🏠 Haushaltsauflösung & Entrümpelung</h3>
+            <p>Wohnungen, Keller, Dachböden entrümpeln – schnell, sauber und zuverlässig.</p>
+        </div>
+
+        <!-- Dienstleistung 2 -->
+        <div class="service-card" onclick="showService('umzug')">
+            <h3>📦 Umzüge & Transport</h3>
+            <p>Professioneller Transport und reibungslose Umzüge für Privat und Gewerbe.</p>
+        </div>
+
+        <!-- Dienstleistung 3 -->
+        <div class="service-card" onclick="showService('sperrmuell')">
+            <h3>♻️ Sperrmüll- & Abfallentsorgung</h3>
+            <p>Fachgerechte Entsorgung von alten Möbeln, Elektrogeräten und sonstigem Sperrmüll.</p>
+        </div>
     </div>
 
-    <script>
-      function sendToWhatsApp(event) {
-        event.preventDefault();
+    <!-- SEITE 2: DETAILSEITE (Dienstleistungen Beschreibungen) -->
+    <div id="page-detail" class="page">
+        <h2 id="detail-title" style="color: #0056b3; margin-top: 0;"></h2>
+        <div id="detail-content" style="font-size: 15px; line-height: 1.6; color: #444; margin-bottom: 20px;"></div>
         
+        <button class="btn" onclick="goToForm()">Jetzt unverbindlich anfragen</button>
+        <button class="btn btn-secondary" onclick="showPage('page-home')">Zurück zur Startseite</button>
+    </div>
+
+    <!-- SEITE 3: FORMULAR -->
+    <div id="page-form" class="page">
+        <h2 style="color: #0056b3; margin-top: 0;">Anfrage senden</h2>
+        <p style="font-size: 14px; color: #666;">Füllen Sie das Formular aus. Wählen Sie danach, ob Sie die Anfrage per WhatsApp oder E-Mail abschicken möchten.</p>
+
+        <div class="form-group">
+            <label for="name">Ihr Name:</label>
+            <input type="text" id="name" placeholder="Vor- und Nachname">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Telefonnummer / Rückrufnummer:</label>
+            <input type="text" id="phone" placeholder="z.B. 0170 1234567">
+        </div>
+
+        <div class="form-group">
+            <label for="details">Details zur Anfrage (Ort, Umfang, Wunschtermin):</label>
+            <textarea id="details" placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+        </div>
+
+        <button class="btn btn-whatsapp" onclick="sendWhatsApp()">Per WhatsApp abschicken</button>
+        <button class="btn" onclick="sendEmail()">Per E-Mail abschicken</button>
+        <button class="btn btn-secondary" onclick="showPage('page-home')">Abbrechen / Zur Startseite</button>
+    </div>
+
+</div>
+
+<script>
+    let selectedServiceTitle = "";
+
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    function showService(serviceType) {
+        const titleElem = document.getElementById('detail-title');
+        const contentElem = document.getElementById('detail-content');
+
+        if (serviceType === 'entruempelung') {
+            selectedServiceTitle = "Haushaltsauflösung & Entrümpelung";
+            titleElem.innerText = selectedServiceTitle;
+            contentElem.innerHTML = `
+                <p>Wir übernehmen die komplette Entrümpelung und Auflösung von Wohnungen, Häusern, Kellern, Dachböden, Garagen und Gewerbeflächen.</p>
+                <p><strong>Unser Ablauf:</strong></p>
+                <ul>
+                    <li>Kostenlose und unverbindliche Besichtigung vor Ort.</li>
+                    <li>Termingerechte und besenreine Übergabe.</li>
+                    <li>Fachgerechte und umweltbewusste Entsorgung bzw. Verwertung.</li>
+                    <li>Wertanrechnung von verwertbaren Gegenständen möglich.</li>
+                </ul>
+            `;
+        } else if (serviceType === 'umzug') {
+            selectedServiceTitle = "Umzüge & Transport";
+            titleElem.innerText = selectedServiceTitle;
+            contentElem.innerHTML = `
+                <p>Egal ob Privatumzug, Firmenumzug oder einzelner Möbeltransport – wir bringen Ihr Hab und Gut sicher ans Ziel.</p>
+                <p><strong>Das bieten wir Ihnen:</strong></p>
+                <ul>
+                    <li>Sorgfältiger Umgang mit Ihren Möbeln und Kartons.</li>
+                    <li>Erfahrenes und starkes Team.</li>
+                    <li>Montage und Demontage von Möbeln auf Wunsch.</li>
+                </ul>
+            `;
+        } else if (serviceType === 'sperrmuell') {
+            selectedServiceTitle = "Sperrmüll- & Abfallentsorgung";
+            titleElem.innerText = selectedServiceTitle;
+            contentElem.innerHTML = `
+                <p>Alte Matratzen, kaputte Schränke, Elektrogeräte oder Kellerfundstücke – wir holen Ihren Sperrmüll direkt bei Ihnen ab.</p>
+                <p><strong>Ihre Vorteile:</strong></p>
+                <ul>
+                    <li>Kein langes Warten auf offizielle Termine.</li>
+                    <li>Wir tragen alles für Sie raus (auch aus höheren Stockwerken).</li>
+                    <li>Saubere Entsorgung auf zertifizierten Höfen.</li>
+                </ul>
+            `;
+        }
+        showPage('page-detail');
+    }
+
+    function goToForm() {
+        showPage('page-form');
+    }
+
+    function sendWhatsApp() {
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
-        const objectType = document.getElementById('object-type').value;
+        const details = document.getElementById('details').value;
+
+        if (!name || !details) {
+            alert('Bitte füllen Sie mindestens Ihren Namen und die Details aus.');
+            return;
+        }
+
+        const message = `*Neue Anfrage über App*\n\n*Dienstleistung:* ${selectedServiceTitle}\n*Name:* ${name}\n*Telefon:* ${phone}\n*Details:* ${details}`;
         
-        const myPhoneNumber = "4915731154945"; 
+        // Ersetzen Sie die Nummer durch Ihre eigene WhatsApp-Nummmer (mit Landesvorwahl, z.B. 49...)
+        const whatsappUrl = `https://wa.me/4915731154945?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    function sendEmail() {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const details = document.getElementById('details').value;
+
+        if (!name || !details) {
+            alert('Bitte füllen Sie mindestens Ihren Namen und die Details aus.');
+            return;
+        }
+
+        const subject = encodeURIComponent(`Anfrage: ${selectedServiceTitle} von ${name}`);
+        const body = encodeURIComponent(`Dienstleistung: ${selectedServiceTitle}\nName: ${name}\nTelefon: ${phone}\n\nDetails:\n${details}`);
         
-        const message = `Neue Entrümpelungs-Anfrage:%0A- Name: ${name}%0A- Telefon: ${phone}%0A- Objekt: ${objectType}`;
-        
-        window.open(`https://wa.me/${myPhoneNumber}?text=${message}`, '_blank');
-      }
-    </script>
-  </body>
+        // Ersetzen Sie die E-Mail-Adresse durch Ihre eigene
+        window.location.href = `mailto:hughashani@gmx.de?subject=${subject}&body=${body}`;
+    }
+</script>
+
+</body>
 </html>
