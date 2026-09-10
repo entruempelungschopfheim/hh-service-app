@@ -2,7 +2,6 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>H&H Service - Entrümpelung & App</title>
     <style>
@@ -21,15 +20,26 @@
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       }
-      h1 { color: #0056b3; }
+      h1 { color: #0056b3; font-size: 24px; }
+      label { display: block; margin-top: 15px; font-weight: bold; }
+      input, textarea, select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
       button {
         background-color: #0056b3;
         color: white;
         border: none;
-        padding: 10px 15px;
+        padding: 12px;
         border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
+        width: 100%;
+        margin-top: 20px;
       }
       button:hover { background-color: #004494; }
     </style>
@@ -37,12 +47,27 @@
   <body>
     <div class="container">
       <h1>H&H Service App</h1>
-      <p>Willkommen bei deiner Entrümpelungs-App! Hier können Kunden bald Anfragen stellen.</p>
-      <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
-      <h3>Neue Anfrage senden</h3>
-      <p><input type="text" placeholder="Dein Name" style="width:100%; padding:8px; margin-bottom:10px; box-sizing:border-box;"></p>
-      <p><textarea placeholder="Was muss entrümpelt werden?" style="width:100%; padding:8px; height:100px; box-sizing:border-box;"></textarea></p>
-      <button onclick="alert('Anfrage abgesendet! (Prototyp)')">Anfrage abschicken</button>
+      <p>Digitale Anfrage für Entrümpelungen & Haushaltsauflösungen.</p>
+      
+      <form onsubmit="event.preventDefault(); alert('Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt.');">
+        <label for="name">Ihr Name / Firma:</label>
+        <input type="text" id="name" placeholder="Max Mustermann" required>
+
+        <label for="phone">Telefonnummer für Rückruf:</label>
+        <input type="tel" id="phone" placeholder="0176 12345678" required>
+
+        <label for="object-type">Art des Objekts:</label>
+        <select id="object-type">
+          <option value="wohnung">Wohnung / Haus</option>
+          <option value="keller">Keller / Dachboden</option>
+          n<option value="gewerbe">Gewerbe / Büro</option>
+        </select>
+
+        <label for="photos">Fotos vom Zustand hochladen:</label>
+        <input type="file" id="photos" accept="image/*" multiple>
+
+        <button type="submit">Kostenlose Anfrage abschicken</button>
+      </form>
     </div>
   </body>
 </html>
