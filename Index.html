@@ -54,7 +54,7 @@
         <input type="text" id="name" placeholder="Max Mustermann" required>
 
         <label for="phone">Telefonnummer für Rückruf:</label>
-        <input type="tel" id="phone" placeholder="015731154945" required>
+        <input type="tel" id="phone" placeholder="0176 12345678" required>
 
         <label for="object-type">Art des Objekts:</label>
         <select id="object-type">
@@ -68,13 +68,22 @@
 
         <button type="submit">Anfrage via WhatsApp senden</button>
       </form>
-
-          
-          window.open(`https://wa.me/${myPhoneNumber}?text=${message}`, '_blank');
-        }
-      </script>
-
-
     </div>
+
+    <script>
+      function sendToWhatsApp(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const objectType = document.getElementById('object-type').value;
+        
+        const myPhoneNumber = "4917012345678"; 
+        
+        const message = `Neue Entrümpelungs-Anfrage:%0A- Name: ${name}%0A- Telefon: ${phone}%0A- Objekt: ${objectType}`;
+        
+        window.open(`https://wa.me/${myPhoneNumber}?text=${message}`, '_blank');
+      }
+    </script>
   </body>
 </html>
