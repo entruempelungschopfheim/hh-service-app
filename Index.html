@@ -49,7 +49,43 @@
       <h1>H&H Service App</h1>
       <p>Digitale Anfrage für Entrümpelungen & Haushaltsauflösungen.</p>
       
-      <form onsubmit="event.preventDefault(); alert('Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt.');">
+      <form onsubmit="sendToWhatsApp(event)">
+        <label for="name">Ihr Name / Firma:</label>
+        <input type="text" id="name" placeholder="Max Mustermann" required>
+
+        <label for="phone">Telefonnummer für Rückruf:</label>
+        <input type="tel" id="phone" placeholder="0176 12345678" required>
+
+        <label for="object-type">Art des Objekts:</label>
+        <select id="object-type">
+          <option value="Wohnung / Haus">Wohnung / Haus</option>
+          <option value="Keller / Dachboden">Keller / Dachboden</option>
+          <option value="Gewerbe / Büro">Gewerbe / Büro</option>
+        </select>
+
+        <label for="photos">Fotos vom Zustand (optional):</label>
+        <input type="file" id="photos" accept="image/*" multiple>
+
+        <button type="submit">Anfrage via WhatsApp senden</button>
+      </form>
+
+      <script>
+        function sendToWhatsApp(event) {
+          event.preventDefault();
+          
+          const name = document.getElementById('name').value;
+          const phone = document.getElementById('phone').value;
+          const objectType = document.getElementById('object-type').value;
+          
+          // Trage hier deine Handynummer im internationalen Format ein (z.B. 49170...)
+          const myPhoneNumber = "4917012345678"; 
+          
+          const message = `Neue Entrümpelungs-Anfrage:%0A- Name: ${name}%0A- Telefon: ${phone}%0A- Objekt: ${objectType}`;
+          
+          window.open(`https://wa.me/${myPhoneNumber}?text=${message}`, '_blank');
+        }
+      </script>
+
         <label for="name">Ihr Name / Firma:</label>
         <input type="text" id="name" placeholder="Max Mustermann" required>
 
