@@ -69,18 +69,6 @@
         <button type="submit">Anfrage via WhatsApp senden</button>
       </form>
 
-      <script>
-        function sendToWhatsApp(event) {
-          event.preventDefault();
-          
-          const name = document.getElementById('name').value;
-          const phone = document.getElementById('phone').value;
-          const objectType = document.getElementById('object-type').value;
-          
-          // Trage hier deine Handynummer im internationalen Format ein (z.B. 49170...)
-          const myPhoneNumber = "015731154945"; 
-          
-          const message = `Neue Entrümpelungs-Anfrage:%0A- Name: ${name}%0A- Telefon: ${phone}%0A- Objekt: ${objectType}`;
           
           window.open(`https://wa.me/${myPhoneNumber}?text=${message}`, '_blank');
         }
