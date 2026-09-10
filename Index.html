@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H&H Service - Entrümpelung & App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      h1 { color: #0056b3; }
+      button {
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover { background-color: #004494; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>H&H Service App</h1>
+      <p>Willkommen bei deiner Entrümpelungs-App! Hier können Kunden bald Anfragen stellen.</p>
+      <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
+      <h3>Neue Anfrage senden</h3>
+      <p><input type="text" placeholder="Dein Name" style="width:100%; padding:8px; margin-bottom:10px; box-sizing:border-box;"></p>
+      <p><textarea placeholder="Was muss entrümpelt werden?" style="width:100%; padding:8px; height:100px; box-sizing:border-box;"></textarea></p>
+      <button onclick="alert('Anfrage abgesendet! (Prototyp)')">Anfrage abschicken</button>
+    </div>
+  </body>
+</html>
